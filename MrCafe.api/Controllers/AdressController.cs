@@ -11,11 +11,12 @@ namespace MrCafe.API.Controllers
     [ApiController]
     public class AdressController : Controller
     {
+
         private readonly IAdressService _adressService;
 
         public AdressController(IAdressService adressService)
         {
-            _adressService = adressService;
+            _adressService =  adressService;
         }
 
         [HttpGet("GetAllAdresses")]
