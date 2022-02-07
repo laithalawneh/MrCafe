@@ -45,6 +45,7 @@ namespace MrCafe.API.Controllers
         public bool UpdateAdress([FromBody] Adress adress)
         {
             return _adressService.UpdateAdress(adress);
+
         }
 
     }
