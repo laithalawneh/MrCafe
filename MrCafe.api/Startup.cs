@@ -31,6 +31,9 @@ namespace MrCafe.api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddScoped<IdbContext, dbContext>();
+
+
             services.AddScoped<IAdressService, AdressService>();
             services.AddScoped<IAdressRepository, AdressRepository>();
 
@@ -72,7 +75,7 @@ namespace MrCafe.api
 
             services.AddScoped<IRollService, RollService>();
             services.AddScoped<IRollRepository, RollRepository>();
-
+            
             services.AddScoped<ITestimonialService, TestimonialService>();
             services.AddScoped<ITestimonialRepository, TestimonialRepository>();
 
@@ -88,7 +91,6 @@ namespace MrCafe.api
             services.AddScoped<IWebsiteService, WebsiteService>();
             services.AddScoped<IWebsiteRepository, WebsiteRepository>();
 
-            services.AddScoped<IdbContext, dbContext>();
             services.AddControllers();
         }
 
