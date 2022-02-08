@@ -20,7 +20,6 @@ namespace MrCafe.api.Controllers
             this._IUsersServices = IUsersServices;
         }
 
-        //create test
         [HttpPost("CreatUser")]
         [ProducesResponseType(typeof(Users), StatusCodes.Status200OK)]
         public bool CreateUsers([FromBody] Users users)
@@ -28,7 +27,6 @@ namespace MrCafe.api.Controllers
             return _IUsersServices.CreateUsers(users);
         }
 
-        //delete test
         [HttpDelete("deleteUser/{id}")]
         [ProducesResponseType(typeof(Users), StatusCodes.Status200OK)]
         public bool DeleteUsers(int id)
@@ -36,7 +34,6 @@ namespace MrCafe.api.Controllers
             return _IUsersServices.DeleteUsers(id);
         }
 
-        //getAlltest
         [HttpGet("GetAllUsers")]
         [ProducesResponseType(typeof(List<Users>), StatusCodes.Status200OK)]
         public List<Users> GetAllUserss()
@@ -44,8 +41,8 @@ namespace MrCafe.api.Controllers
             return _IUsersServices.GetAllUserss();
         }
 
-        //getAlltest
-        [HttpGet("GetUserId")]
+        
+        [HttpPost("GetUserId")]
         [ProducesResponseType(typeof(Users), StatusCodes.Status200OK)]
         public List<Users> GetUsersById([FromBody] Users users)
         {
@@ -53,7 +50,7 @@ namespace MrCafe.api.Controllers
         }
 
         //getAlltest
-        [HttpGet("GetUserName")]
+        [HttpPost("GetUserName")]
         [ProducesResponseType(typeof(Users), StatusCodes.Status200OK)]
         public List<Users> GetUsersByName([FromBody] Users users)
         {

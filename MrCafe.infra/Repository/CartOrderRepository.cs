@@ -64,7 +64,7 @@ namespace MrCafe.Infra.Repository
         public List<Cartorder> getCartorderbyCartid(Cartorder Cartorder)
         {
             var p = new DynamicParameters();
-            p.Add("Cart_id", Cartorder.ID, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            p.Add("Cart_id", Cartorder.Cartid, dbType: DbType.Int32, direction: ParameterDirection.Input);
             IEnumerable<Cartorder> result = _dbContext.connection.Query<Cartorder>("Cartorder_package.getCartorderbyCartid", p, commandType: CommandType.StoredProcedure);
 
             return result.ToList();
