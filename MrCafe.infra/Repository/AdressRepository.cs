@@ -27,9 +27,9 @@ namespace MrCafe.Infra.Repository
         public bool CreateAdress(Adress adress)
         {
             var p = new DynamicParameters();
-            p.Add("lat", adress.latitude, dbType: DbType.Double, direction: ParameterDirection.Input);
-            p.Add("lang", adress.longitude, dbType: DbType.Double, direction: ParameterDirection.Input);
-            p.Add("delivery_id", adress.deliveryid, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            p.Add("latin", adress.latitude, dbType: DbType.Decimal, direction: ParameterDirection.Input);
+            p.Add("lang", adress.longitude, dbType: DbType.Decimal, direction: ParameterDirection.Input);
+            p.Add("delivery_id", adress.deliveryid, dbType: DbType.Decimal, direction: ParameterDirection.Input);
             var result = _dbContext.connection.ExecuteAsync("Adress_package.CreateAdress", p, commandType: CommandType.StoredProcedure);
             return true;
         }
