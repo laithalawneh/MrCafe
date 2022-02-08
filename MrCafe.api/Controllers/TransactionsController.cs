@@ -37,7 +37,7 @@ namespace MrCafe.api.Controllers
         }
 
         //get All Trans
-        [HttpGet("GetAllTestimonial")]
+        [HttpGet("GetAllTransactions")]
         [ProducesResponseType(typeof(List<Transactions>), StatusCodes.Status200OK)]
         public List<Transactions> GetAllTransactionss()
         {
