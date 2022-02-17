@@ -8,7 +8,6 @@ namespace MrCafe.Core.Data
     public class contactus
     {
         
-
         [Key]
         public int ID { get; set; }
         public string Name { get; set; }
