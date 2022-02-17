@@ -70,8 +70,6 @@ namespace MrCafe.api
             services.AddScoped<IProductOrderService, ProductOrderService>();
             services.AddScoped<IProductOrderRepository, ProductOrderRepository>();
 
-            services.AddScoped<IRollService, RollService>();
-            services.AddScoped<IRollRepository, RollRepository>();
 
             services.AddScoped<ITestimonialService, TestimonialService>();
             services.AddScoped<ITestimonialRepository, TestimonialRepository>();
