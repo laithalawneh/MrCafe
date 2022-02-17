@@ -51,7 +51,7 @@ namespace MrCafe.Infra.Repository
             var result = _dbContext.connection.ExecuteAsync("contactus_Package.Updatecontactus", p, commandType: CommandType.StoredProcedure);
             return true;
         }
-
+        //kkklpokmlk
         public bool Deletecontactus(int id)
         {
             var p = new DynamicParameters();
