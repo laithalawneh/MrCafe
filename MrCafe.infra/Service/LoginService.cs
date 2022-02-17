@@ -40,6 +40,7 @@ namespace MrCafe.Infra.Service
             return _loginRepository.GetLoginByName(login);
         }
 
+
         public bool UpdateLogin(Login login)
         {
             return _loginRepository.updatelogin(login);
