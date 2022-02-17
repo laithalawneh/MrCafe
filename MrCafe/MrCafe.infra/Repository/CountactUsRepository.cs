@@ -29,7 +29,7 @@ namespace MrCafe.Infra.Repository
         {
             var p = new DynamicParameters();
             p.Add("C_Name", countactUs.Name, dbType: DbType.String, direction: ParameterDirection.Input);
-            p.Add("C_subject", countactUs.subject, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("C_subject", countactUs.SUBJECT, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("C_message", countactUs.message, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("C_senderemail", countactUs.senderemail, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("C_receiveremail", countactUs.receiveremail, dbType: DbType.String, direction: ParameterDirection.Input);
@@ -43,7 +43,7 @@ namespace MrCafe.Infra.Repository
             var p = new DynamicParameters();
             p.Add("C_ID", countactUs.ID, dbType: DbType.Int32, direction: ParameterDirection.Input);
             p.Add("C_Name", countactUs.Name, dbType: DbType.String, direction: ParameterDirection.Input);
-            p.Add("C_subject", countactUs.subject, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("C_subject", countactUs.SUBJECT, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("C_message", countactUs.message, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("C_senderemail", countactUs.senderemail, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("C_receiveremail", countactUs.receiveremail, dbType: DbType.String, direction: ParameterDirection.Input);
@@ -51,7 +51,7 @@ namespace MrCafe.Infra.Repository
             var result = _dbContext.connection.ExecuteAsync("contactus_Package.Updatecontactus", p, commandType: CommandType.StoredProcedure);
             return true;
         }
-
+        //kkklpokmlk
         public bool Deletecontactus(int id)
         {
             var p = new DynamicParameters();
