@@ -13,7 +13,7 @@ namespace MrCafe.Core.Data
         public string UserName { get; set; }
         public string Password { get; set; }
         public int Userid { get; set; }
-        public int Roll { get; set; }
+        public string Rolename { get; set; }
         public int Cafeid { get; set; }
 
         [ForeignKey("Cafeid")]
@@ -22,7 +22,5 @@ namespace MrCafe.Core.Data
         [ForeignKey("Userid")]
         public virtual Users Users { get; set; }
 
-        [ForeignKey("Roll")]
-        public virtual Roll Rolls { get; set; }
     }
 }

@@ -30,7 +30,7 @@ namespace MrCafe.Infra.Repository
             var p = new DynamicParameters();
             p.Add("UserName", login.UserName, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("Password", login.Password, dbType: DbType.String, direction: ParameterDirection.Input);
-            p.Add("Roll", login.Roll, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            p.Add("Rolename", login.Rolename, dbType: DbType.Int32, direction: ParameterDirection.Input);
             p.Add("Userid", login.Userid, dbType: DbType.Int32, direction: ParameterDirection.Input);
             p.Add("Cafeid", login.Cafeid, dbType: DbType.Int32, direction: ParameterDirection.Input);
             var result = _dbContext.connection.ExecuteAsync("Login_package.insertlogin", p, commandType: CommandType.StoredProcedure);
@@ -43,7 +43,7 @@ namespace MrCafe.Infra.Repository
             p.Add("l_ID", login.ID, dbType: DbType.Int32, direction: ParameterDirection.Input);
             p.Add("User_Name", login.UserName, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("Password1", login.Password, dbType: DbType.String, direction: ParameterDirection.Input);
-            p.Add("Roll1", login.Roll, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            p.Add("Role_name", login.Rolename, dbType: DbType.Int32, direction: ParameterDirection.Input);
             p.Add("Userid1", login.Userid, dbType: DbType.Int32, direction: ParameterDirection.Input);
             p.Add("Cafeid1", login.Cafeid, dbType: DbType.Int32, direction: ParameterDirection.Input);
             var result = _dbContext.connection.ExecuteAsync("Login_package.updatelogin", p, commandType: CommandType.StoredProcedure);
