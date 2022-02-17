@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using MrCafe.core.DTO;
 using MrCafe.Core.Data;
 using MrCafe.Core.Service;
 using System;
@@ -63,6 +64,20 @@ namespace MrCafe.api.Controllers
         public bool UpdateUsers([FromBody] Users users)
         {
             return _IUsersServices.UpdateUsers(users);
+        }
+
+        
+        [HttpGet("getUserId")]
+        [ProducesResponseType(typeof(Users), StatusCodes.Status200OK)]
+        public List<Users> getUserId(Users users)
+        {
+            return _IUsersServices.getUserId(users);
+        }
+
+        [HttpPost("UserLoginDto")]
+        [ProducesResponseType(typeof(UserLoginDto), StatusCodes.Status200OK)]
+        public bool UserLoginDto([FromBody]UserLoginDto userLoginDto) {
+            return _IUsersServices.UserLoginDto(userLoginDto);
         }
     }
 }
