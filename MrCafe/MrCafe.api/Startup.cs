@@ -31,6 +31,16 @@ namespace MrCafe.api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors(corsOptions =>
+            {
+                corsOptions.AddPolicy("x",
+                builder =>
+                {
+                 builder.WithOrigins("https://localhost:4200").AllowAnyHeader().AllowAnyMethod();
+                builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
+                });
+            });
+
             services.AddScoped<IdbContext, dbContext>();
 
 
@@ -90,24 +100,24 @@ namespace MrCafe.api
 
             services.AddScoped<IWebsiteService, WebsiteService>();
             services.AddScoped<IWebsiteRepository, WebsiteRepository>();
+            services.AddCors(c => {
+                c.AddPolicy("AllowOrigin", options => options.AllowAnyOrigin());
 
+            });
             services.AddControllers();
+            
         }
 
         // This method gets called by the runtime. Use this method to configure to HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-            }
-
+           
             app.UseHttpsRedirection();
 
             app.UseRouting();
 
             app.UseAuthorization();
-
+            app.UseCors("x");
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
