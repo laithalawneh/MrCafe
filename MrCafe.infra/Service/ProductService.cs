@@ -25,6 +25,11 @@ namespace MrCafe.Infra.Service
             return _productRepository.Deleteproduct(id);
         }
 
+        public List<product> GetAllproductbyCategory(int id)
+        {
+            return _productRepository.GetAllproductbyCategory(id);
+        }
+
         public List<product> GetAllProducts()
         {
             return _productRepository.GetAllproduct();

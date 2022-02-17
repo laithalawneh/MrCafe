@@ -11,5 +11,6 @@ namespace MrCafe.Core.Service
         public bool CreateProduct(product product);
         public bool UpdateProduct(product product);
         public bool DeleteProduct(int id);
+        public List<product> GetAllproductbyCategory(int id);
     }
 }
