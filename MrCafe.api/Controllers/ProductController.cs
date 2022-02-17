@@ -50,7 +50,6 @@ namespace MrCafe.API.Controllers
         //[HttpPost("productbyCategory")]
         //public List<product> GetAllproductbyCategory([FromBody] int id)
         //{
-        //    return _productService.GetAllproductbyCategory(id);
         //}
 
         [HttpGet("productbyCategory/{id}")]
