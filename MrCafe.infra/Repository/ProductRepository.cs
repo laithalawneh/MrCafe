@@ -63,5 +63,13 @@ namespace MrCafe.Infra.Repository
             var result = _dbContext.connection.ExecuteAsync("product_Package.Deleteproduct", p, commandType: CommandType.StoredProcedure);
             return true;
         }
+
+        public List<product> GetAllproductbyCategory(int id)
+        {
+            var p = new DynamicParameters();
+            p.Add("Pro_Category", id, dbType: DbType.Decimal, direction: ParameterDirection.Input);
+            IEnumerable<product> result = _dbContext.connection.Query<product>("product_Package.GetAllproductbyCategory", p, commandType: CommandType.StoredProcedure);
+            return result.ToList();
+        }
     }
 }

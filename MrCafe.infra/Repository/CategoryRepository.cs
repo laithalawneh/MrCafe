@@ -36,9 +36,9 @@ namespace MrCafe.Infra.Repository
         public bool UpdateCategory(Category category)
         {
             var p = new DynamicParameters();
-            p.Add("Cat_ID", category.ID, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            p.Add("Cat_ID", category.ID, dbType: DbType.Decimal, direction: ParameterDirection.Input);
             p.Add("Cat_name", category.Categoryname, dbType: DbType.String, direction: ParameterDirection.Input);
-            var result = _dbContext.connection.ExecuteAsync("Category_Package.CreateCategory", p, commandType: CommandType.StoredProcedure);
+            var result = _dbContext.connection.ExecuteAsync("Category_Package.UpdateCategory", p, commandType: CommandType.StoredProcedure);
             return true;
         }
 

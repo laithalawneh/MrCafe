@@ -46,5 +46,19 @@ namespace MrCafe.API.Controllers
         {
             return _productService.UpdateProduct(product);
         }
+
+        //[HttpPost("productbyCategory")]
+        //[ProducesResponseType(typeof(List<product>), StatusCodes.Status200OK)]
+        //public List<product> GetAllproductbyCategory([FromBody] int id)
+        //{
+        //    return _productService.GetAllproductbyCategory(id);
+        //}
+
+        [HttpGet("productbyCategory/{id}")]
+        [ProducesResponseType(typeof(List<product>), StatusCodes.Status200OK)]
+        public List<product> GetAllproductbyCategory(int id)
+        {
+            return _productService.GetAllproductbyCategory(id);
+        }
     }
 }
