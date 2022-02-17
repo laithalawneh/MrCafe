@@ -13,7 +13,6 @@ namespace MrCafe.Infra.Repository
     public class CountactUsRepository : ICountactUsRepository
     {
         private readonly IdbContext _dbContext;
-
         public CountactUsRepository(IdbContext dbContext)
         {
             _dbContext = dbContext;
