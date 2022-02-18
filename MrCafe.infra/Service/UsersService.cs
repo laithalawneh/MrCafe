@@ -1,4 +1,5 @@
-﻿using MrCafe.Core.Data;
+﻿using MrCafe.core.DTO;
+using MrCafe.Core.Data;
 using MrCafe.Core.Repository;
 using MrCafe.Core.Service;
 using System;
@@ -43,6 +44,11 @@ namespace MrCafe.Infra.Service
         public bool UpdateUsers(Users users)
         {
             return IUsersRepository.updateusers(users);
+        }
+
+        public bool UserLoginDto(UserLoginDto userLoginDto)
+        {
+            return IUsersRepository.UserLoginDto(userLoginDto);
         }
     }
 }
