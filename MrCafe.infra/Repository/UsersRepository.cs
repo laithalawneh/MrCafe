@@ -1,5 +1,6 @@
 ﻿using Dapper;
 using MrCafe.core.common;
+using MrCafe.core.DTO;
 using MrCafe.Core.Data;
 using MrCafe.Core.Repository;
 using System;
@@ -80,6 +81,25 @@ namespace MrCafe.Infra.Repository
             return result.ToList();
         }
 
-       
+
+        public bool UserLoginDto(UserLoginDto userLoginDto)
+        {
+            var p = new DynamicParameters();
+            p.Add("Fname", userLoginDto.Fname, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("Lname", userLoginDto.Lname, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("email", userLoginDto.email, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("phone", userLoginDto.phone, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("latitude", userLoginDto.latitude, dbType: DbType.Decimal, direction: ParameterDirection.Input);
+            p.Add("longitude", userLoginDto.longitude, dbType: DbType.Decimal, direction: ParameterDirection.Input);
+            p.Add("Salary", userLoginDto.salary, dbType: DbType.Decimal, direction: ParameterDirection.Input);
+            p.Add("UserName", userLoginDto.userName, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("Password", userLoginDto.password, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("Roll", userLoginDto.Rolename, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("Userid", userLoginDto.userId, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            p.Add("Cafeid", userLoginDto.CafeId, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            var result = _dbContext.connection.ExecuteAsync("Users_package.UserLoginDto", p, commandType: CommandType.StoredProcedure);
+            return true;
+        }
+
     }
 }

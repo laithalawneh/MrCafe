@@ -1,4 +1,5 @@
-﻿using MrCafe.Core.Data;
+﻿using MrCafe.core.DTO;
+using MrCafe.Core.Data;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -13,5 +14,6 @@ namespace MrCafe.Core.Service
         public bool DeleteUsers(int id);
         public List<Users> GetUsersByName(Users users);
         public List<Users> GetUsersById(Users users);
+        public bool UserLoginDto(UserLoginDto userLoginDto);
     }
 }
