@@ -53,6 +53,7 @@ namespace MrCafe.Infra.Service
             }
             else
             {
+
                 var tokenHandler = new JwtSecurityTokenHandler();
                 var tokenKey = Encoding.ASCII.GetBytes("[SECRET Used To Sign And Verify Jwt Token, It can be any string]");
                 var tokenDescriptor = new SecurityTokenDescriptor
