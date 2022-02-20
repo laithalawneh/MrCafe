@@ -12,5 +12,6 @@ namespace MrCafe.Core.Repository
         public bool Updateproduct(product product);
         public bool Deleteproduct(int id);
         public List<product> GetAllproductbyCategory(int id);
+        public List<product> GetAllproductbyCafe(int id);
     }
 }

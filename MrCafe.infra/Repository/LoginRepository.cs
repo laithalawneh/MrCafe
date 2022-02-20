@@ -75,5 +75,16 @@ namespace MrCafe.Infra.Repository
 
             return result.ToList();
         }
+
+        public Login getlogincheck(Login wlogin)
+        {
+            var p = new DynamicParameters();
+
+            p.Add("User_Name", wlogin.UserName, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("pass", wlogin.Password, dbType: DbType.String, direction: ParameterDirection.Input);
+
+            IEnumerable<Login> result = _dbContext.connection.Query<Login>("Login_package.getlogincheck", p, commandType: CommandType.StoredProcedure);
+            return result.FirstOrDefault();
+        }
     }
 }

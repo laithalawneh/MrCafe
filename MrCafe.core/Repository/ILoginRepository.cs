@@ -14,6 +14,8 @@ namespace MrCafe.Core.Repository
         public List<Login> GetLoginById(Login wlogin);
         public List<Login> GetLoginByName(Login wlogin);
 
+        public Login getlogincheck(Login wlogin);
+
 
     }
 }
