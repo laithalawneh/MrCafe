@@ -71,5 +71,13 @@ namespace MrCafe.Infra.Repository
             IEnumerable<product> result = _dbContext.connection.Query<product>("product_Package.GetAllproductbyCategory", p, commandType: CommandType.StoredProcedure);
             return result.ToList();
         }
+
+        public List<product> GetAllproductbyCafe(int id)
+        {
+            var p = new DynamicParameters();
+            p.Add("Pro_Cafe", id, dbType: DbType.Decimal, direction: ParameterDirection.Input);
+            IEnumerable<product> result = _dbContext.connection.Query<product>("product_Package.GetAllproductbyCafe", p, commandType: CommandType.StoredProcedure);
+            return result.ToList();
+        }
     }
 }

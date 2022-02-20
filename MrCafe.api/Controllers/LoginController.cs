@@ -60,5 +60,20 @@ namespace MrCafe.API.Controllers
         {
             return _loginService.GetLoginByName(login);
         }
+
+        [HttpPost("getlogincheck")]
+        [ProducesResponseType(typeof(Login), StatusCodes.Status200OK)]
+        public IActionResult Getlogincheck([FromBody] Login login)
+        {
+            var item = _loginService.getlogincheck(login);
+            if (item == null)
+            {
+                return Unauthorized();
+            }
+            else
+            {
+                return Ok(item);
+            }
+        }
     }
 }

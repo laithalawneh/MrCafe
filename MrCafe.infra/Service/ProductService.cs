@@ -39,5 +39,10 @@ namespace MrCafe.Infra.Service
         {
             return _productRepository.Updateproduct(product);
         }
+
+        public List<product> GetAllproductbyCafe(int id)
+        {
+            return _productRepository.GetAllproductbyCafe(id);
+        }
     }
 }

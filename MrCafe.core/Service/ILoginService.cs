@@ -13,5 +13,7 @@ namespace MrCafe.Core.Service
         public bool DeleteLogin(int id);
         public List<Login> GetLoginById(Login login);
         public List<Login> GetLoginByName(Login login);
+
+        public string getlogincheck(Login login);
     }
 }

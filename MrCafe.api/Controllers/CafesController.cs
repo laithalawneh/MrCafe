@@ -61,14 +61,14 @@ namespace MrCafe.API.Controllers
             return _cafesService.GetCofesByName(cafe.Cafesname);
         }
 
-        [HttpPost("GetCofesByRate")]
+        [HttpGet("GetCofesByRate")]
         [ProducesResponseType(typeof(Cafes), StatusCodes.Status200OK)]
         public List<Cafes> GetCofesByRate([FromBody] Cafes cafe)
         {
             return _cafesService.GetCofesByRate(cafe);
         }
 
-        [HttpPost("GetCofesByRateDec")]
+        [HttpGet("GetCofesByRateDec")]
         [ProducesResponseType(typeof(Cafes), StatusCodes.Status200OK)]
         public List<Cafes> GetCofesByRateDec()
         {
