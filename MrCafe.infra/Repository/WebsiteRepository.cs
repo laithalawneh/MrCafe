@@ -63,5 +63,13 @@ namespace MrCafe.Infra.Repository
             var result = _dbContext.connection.ExecuteAsync("website_Package.Deletewebsite", p, commandType: CommandType.StoredProcedure);
             return true;
         }
+
+        public List<website> websiteDetails(int id)
+        {
+            var p = new DynamicParameters();
+            p.Add("web_ID", id, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            IEnumerable<website> result = _dbContext.connection.Query<website>("website_Package.websiteDetails", p, commandType: CommandType.StoredProcedure);
+            return result.ToList();
+        }
     }
 }

@@ -57,5 +57,11 @@ namespace MrCafe.Infra.Repository
             var result = _dbContext.connection.ExecuteAsync("testimonial_Package.Deletetestimonial", p, commandType: CommandType.StoredProcedure);
             return true;
         }
+
+        public List<testimonial> GetAllacceptedtestimonial()
+        {
+            IEnumerable<testimonial> result = _dbContext.connection.Query<testimonial>("testimonial_Package.GetAllacceptedtestimonial", commandType: CommandType.StoredProcedure);
+            return result.ToList();
+        }
     }
 }

@@ -25,6 +25,11 @@ namespace MrCafe.Infra.Service
             return _testimonialRepository.Deletetestimonial(id);
         }
 
+        public List<testimonial> GetAllacceptedtestimonial()
+        {
+            return _testimonialRepository.GetAllacceptedtestimonial();
+        }
+
         public List<testimonial> GetAllTestimonials()
         {
             return _testimonialRepository.GetAlltestimonial();

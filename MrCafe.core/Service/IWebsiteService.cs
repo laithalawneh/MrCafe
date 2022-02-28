@@ -11,6 +11,7 @@ namespace MrCafe.Core.Service
         public bool CreateWebsite(website website);
         public bool UpdateWebsite(website website);
         public bool DeleteWebsite(int id);
+        public List<website> websiteDetails(int id);
 
     }
 }

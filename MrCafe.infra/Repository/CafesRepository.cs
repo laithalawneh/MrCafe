@@ -90,7 +90,14 @@ namespace MrCafe.Infra.Repository
             return result.ToList();
         }
 
+        public Cafes GetCafeId(Cafes cafe)
+        {
+            var p = new DynamicParameters();
+            p.Add("Cafes_name", cafe.Cafesname, dbType: DbType.String, direction: ParameterDirection.Input);
+            IEnumerable<Cafes> result = _dbContext.connection.Query<Cafes>("Cafes_package.GetCafeId", p, commandType: CommandType.StoredProcedure);
 
+            return result.ToList().FirstOrDefault();
+        }
 
     }
 }

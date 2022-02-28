@@ -46,5 +46,20 @@ namespace MrCafe.API.Controllers
         {
             return _deliveryService.UpdateDelivery(delivery);
         }
+
+        [HttpGet("DeliveryOnline")]
+        [ProducesResponseType(typeof(List<delivery>), StatusCodes.Status200OK)]
+        public double DeliveryOnline()
+        {
+            return _deliveryService.DeliveryOnline();
+        }
+
+
+        [HttpGet("DeliveryBusy")]
+        [ProducesResponseType(typeof(List<delivery>), StatusCodes.Status200OK)]
+        public double DeliveryBusy()
+        {
+            return _deliveryService.DeliveryBusy();
+        }
     }
 }

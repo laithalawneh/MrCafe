@@ -76,5 +76,12 @@ namespace MrCafe.api.Controllers
             return _IUsersServices.UserLoginDto(userLoginDto);
         }
 
+        [HttpPost("getUserIdf")]
+        [ProducesResponseType(typeof(Users), StatusCodes.Status200OK)]
+        public Users getUserId([FromBody] Users user)
+        {
+            return _IUsersServices.getUserId(user);
+        }
+
     }
 }

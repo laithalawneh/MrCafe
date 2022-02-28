@@ -52,5 +52,12 @@ namespace MrCafe.api.Controllers
         {
             return _websiteService.UpdateWebsite(website);
         }
+
+        [HttpGet("websiteDetails/{id}")]
+        [ProducesResponseType(typeof(List<website>), StatusCodes.Status200OK)]
+        public List<website> websiteDetails(int id)
+        {
+            return _websiteService.websiteDetails(id);
+        }
     }
 }

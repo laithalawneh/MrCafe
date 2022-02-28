@@ -74,5 +74,12 @@ namespace MrCafe.API.Controllers
         {
             return _cafesService.GetCofesByRateDec();
         }
+
+        [HttpPost("GetCafeIdF")]
+        [ProducesResponseType(typeof(Cafes), StatusCodes.Status200OK)]
+        public Cafes GetCafeId([FromBody] Cafes cafe)
+        {
+            return _cafesService.GetCafeId(cafe);
+        }
     }
 }

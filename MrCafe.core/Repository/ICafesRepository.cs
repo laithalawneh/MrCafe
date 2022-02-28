@@ -15,6 +15,7 @@ namespace MrCafe.Core.Repository
         public List<Cafes> GetCafeByname(string name);
         public List<Cafes> GetCafeByDescendingRate();
         public List<Cafes> GetCafeByRate(Cafes cafe);
+        public Cafes GetCafeId(Cafes cafe);
 
     }
 }

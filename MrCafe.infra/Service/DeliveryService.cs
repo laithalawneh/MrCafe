@@ -34,5 +34,14 @@ namespace MrCafe.Infra.Service
         {
             return _deliveryRepository.UpdateDelivery(delivery);
         }
+
+        public double DeliveryOnline()
+        {
+            return _deliveryRepository.DeliveryOnline();
+        }
+        public double DeliveryBusy()
+        {
+            return _deliveryRepository.DeliveryBusy();
+        }
     }
 }

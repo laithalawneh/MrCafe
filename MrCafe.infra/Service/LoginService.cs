@@ -62,7 +62,8 @@ namespace MrCafe.Infra.Service
                 new Claim[]
                 {
                       new Claim(ClaimTypes.Name, result.UserName),
-                      new Claim(ClaimTypes.Role, result.Rolename)
+                      new Claim(ClaimTypes.Role, result.Rolename),
+                      new Claim(ClaimTypes.NameIdentifier,result.Userid.ToString())
                 }
                 ),
                     Expires = DateTime.UtcNow.AddHours(1),

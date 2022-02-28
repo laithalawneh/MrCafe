@@ -11,5 +11,8 @@ namespace MrCafe.Core.Repository
         public bool Createtestimonial(testimonial testimonial);
         public bool Updatetestimonial(testimonial testimonial);
         public bool Deletetestimonial(int id);
+        public List<testimonial> GetAllacceptedtestimonial();
+
+        
     }
 }
