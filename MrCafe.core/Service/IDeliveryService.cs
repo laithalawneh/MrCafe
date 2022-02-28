@@ -11,5 +11,8 @@ namespace MrCafe.Core.Service
         public bool CreateDelivery(delivery delivery);
         public bool UpdateDelivery(delivery delivery);
         public bool DeleteDelivery(int id);
+
+        public double DeliveryOnline();
+        public double DeliveryBusy();
     }
 }

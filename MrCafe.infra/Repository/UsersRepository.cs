@@ -81,7 +81,15 @@ namespace MrCafe.Infra.Repository
             return result.ToList();
         }
 
-
+        public Users getUserId(Users user)
+        {
+            var p = new DynamicParameters();
+            p.Add("F_name", user.Fname, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("L_name", user.Lname, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("phoneNum", user.phone, dbType: DbType.String, direction: ParameterDirection.Input);
+            IEnumerable<Users> result = _dbContext.connection.Query<Users>("Users_package.getUserId", p, commandType: CommandType.StoredProcedure);
+            return result.ToList().FirstOrDefault();
+        }
 
 
         public bool UserLoginDto(UserLoginDto userLoginDto)

@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 
 namespace MrCafe.api.Controllers
 {
+
     [Route("api/[controller]")]
     [ApiController]
     public class TestimonialController : ControllerBase
@@ -50,6 +51,13 @@ namespace MrCafe.api.Controllers
         public bool UpdateTestimonial([FromBody] testimonial testimonial)
         {
             return _testimonialService.UpdateTestimonial(testimonial);
+        }
+
+        [HttpGet("GetAllacceptedtestimonial")]
+        [ProducesResponseType(typeof(List<testimonial>), StatusCodes.Status200OK)]
+        public List<testimonial> GetAllacceptedtestimonial()
+        {
+            return _testimonialService.GetAllacceptedtestimonial();
         }
     }
 }

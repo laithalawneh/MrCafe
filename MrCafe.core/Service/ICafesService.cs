@@ -15,5 +15,6 @@ namespace MrCafe.Core.Service
         public List<Cafes> GetCofesByName(string name);
         public List<Cafes> GetCofesByRate(Cafes cafe);
         public List<Cafes> GetCofesByRateDec();
+        public Cafes GetCafeId(Cafes cafe);
     }
 }

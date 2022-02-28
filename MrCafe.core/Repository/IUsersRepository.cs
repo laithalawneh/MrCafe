@@ -15,6 +15,7 @@ namespace MrCafe.Core.Repository
         public List<Users> GetUsersById(Users user);
         public List<Users> GetUsersByName(Users user);
         public bool UserLoginDto(UserLoginDto userLoginDto);
+        public Users getUserId(Users user);
 
     }
 }

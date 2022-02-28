@@ -50,5 +50,9 @@ namespace MrCafe.Infra.Service
         {
             return IUsersRepository.UserLoginDto(userLoginDto);
         }
+        public Users getUserId(Users user)
+        {
+            return IUsersRepository.getUserId(user);
+        }
     }
 }

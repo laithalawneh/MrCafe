@@ -33,7 +33,7 @@ namespace MrCafe.Infra.Repository
             p.Add("user_n", delivery.UserName, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("pass", delivery.Password, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("s", delivery.Status, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            p.Add("sal", delivery.Salary, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("sal", delivery.Salary, dbType: DbType.Int32, direction: ParameterDirection.Input);
             var result = _dbContext.connection.ExecuteAsync("delivery_package.CreateDelivery", p, commandType: CommandType.StoredProcedure);
             return true;
         }
@@ -47,7 +47,7 @@ namespace MrCafe.Infra.Repository
             p.Add("user_n", delivery.UserName, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("pass", delivery.Password, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("s", delivery.Status, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            p.Add("sal", delivery.Salary, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("sal", delivery.Salary, dbType: DbType.Int32, direction: ParameterDirection.Input);
             var result = _dbContext.connection.ExecuteAsync("delivery_package.UpdateDelivery", p, commandType: CommandType.StoredProcedure);
             return true;
         }
@@ -58,6 +58,18 @@ namespace MrCafe.Infra.Repository
             p.Add("d_id", id, dbType: DbType.Int32, direction: ParameterDirection.Input);
             var result = _dbContext.connection.ExecuteAsync("delivery_package.DeleteDelivery", p, commandType: CommandType.StoredProcedure);
             return true;
+        }
+
+        public double DeliveryOnline()
+        {
+            IEnumerable<delivery> result = _dbContext.connection.Query<delivery>("delivery_package.DeliveryOnline", commandType: CommandType.StoredProcedure);
+            return result.ToList().Count();
+        }
+
+        public double DeliveryBusy()
+        {
+            IEnumerable<delivery> result = _dbContext.connection.Query<delivery>("delivery_package.DeliveryBusy", commandType: CommandType.StoredProcedure);
+            return result.ToList().Count();
         }
     }
 }

@@ -35,5 +35,10 @@ namespace MrCafe.Infra.Repository
         {
             return _websiteRepository.Updatewebsite(website);
         }
+
+        public List<website> websiteDetails(int id)
+        {
+            return _websiteRepository.websiteDetails(id);
+        }
     }
 }

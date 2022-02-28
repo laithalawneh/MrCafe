@@ -54,5 +54,10 @@ namespace MrCafe.Infra.Service
         {
             return _cafesRepository.UpdateCafes(cafes);
         }
+
+        public Cafes GetCafeId(Cafes cafe)
+        {
+            return _cafesRepository.GetCafeId(cafe);
+        }
     }
 }

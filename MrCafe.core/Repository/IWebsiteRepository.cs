@@ -11,6 +11,7 @@ namespace MrCafe.Core.Repository
         public bool Createwebsite(website website);
         public bool Updatewebsite(website website);
         public bool Deletewebsite(int id);
+        public List<website> websiteDetails(int id);
 
     }
 }
