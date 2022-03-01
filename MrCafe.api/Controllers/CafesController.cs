@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using MrCafe.Core.Data;
 using MrCafe.Core.Service;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace MrCafe.API.Controllers
 {
@@ -80,6 +81,26 @@ namespace MrCafe.API.Controllers
         public Cafes GetCafeId([FromBody] Cafes cafe)
         {
             return _cafesService.GetCafeId(cafe);
+        }
+        [HttpGet("GetAllCafeProducts/{id}")]
+        [ProducesResponseType(typeof(Cafes), StatusCodes.Status200OK)]
+        public async Task<Cafes> GetAllCafeProducts(int id)
+        {
+            return await _cafesService.GetAllCafeProducts(id);
+
+        }
+
+        [HttpGet("GetTopCafes")]
+        [ProducesResponseType(typeof(Cafes), StatusCodes.Status200OK)]
+        public List<Cafes> GetTopCafes()
+        {
+            return _cafesService.GetTopCafes();
+        }
+        [HttpGet("GetCafeByAscendingRate")]
+        [ProducesResponseType(typeof(Cafes), StatusCodes.Status200OK)]
+        public List<Cafes> GetCafeByAscendingRate()
+        {
+            return _cafesService.GetCafeByAscendingRate();
         }
     }
 }

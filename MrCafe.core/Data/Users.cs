@@ -19,7 +19,7 @@ namespace MrCafe.Core.Data
 
         public virtual ICollection<payment> Payment { get; set; }
         public virtual ICollection<testimonial> Testimonial { get; set; }
-        public virtual ICollection<Cart> Carts { get; set; }
+        public virtual ICollection<Cartorder> Cartorders { get; set; }
         public virtual ICollection<Orders> Orders { get; set;}
         public virtual ICollection<Login> Login { get; set; }
 

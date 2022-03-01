@@ -39,5 +39,10 @@ namespace MrCafe.Infra.Service
         {
             return _walletRepository.UpdateWallet(wallet);
         }
+
+        public bool UpdateBayWallet(Wallet wallet)
+        {
+            return _walletRepository.UpdateBayWallet(wallet);
+        }
     }
 }

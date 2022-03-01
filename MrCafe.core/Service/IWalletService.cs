@@ -12,5 +12,7 @@ namespace MrCafe.Core.Service
         public bool UpdateWallet(Wallet wallet);
         public bool DeleteWallet(int id);
         public List<Wallet> GetWalletById(Wallet wallet);
+        public bool UpdateBayWallet(Wallet wallet);
+
     }
 }

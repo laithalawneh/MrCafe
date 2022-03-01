@@ -4,6 +4,7 @@ using MrCafe.Core.Service;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace MrCafe.Infra.Service
 {
@@ -58,6 +59,22 @@ namespace MrCafe.Infra.Service
         public Cafes GetCafeId(Cafes cafe)
         {
             return _cafesRepository.GetCafeId(cafe);
+        }
+
+        public async Task<Cafes> GetAllCafeProducts(int id)
+        {
+            return await _cafesRepository.GetAllCafeProducts(id);
+
+        }
+
+        public List<Cafes> GetTopCafes()
+        {
+            return _cafesRepository.GetTopCafes();
+        }
+
+        public List<Cafes> GetCafeByAscendingRate()
+        {
+            return _cafesRepository.GetCafeByAscendingRate();
         }
     }
 }

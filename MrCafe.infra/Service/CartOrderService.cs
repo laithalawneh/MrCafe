@@ -1,4 +1,5 @@
-﻿using MrCafe.Core.Data;
+﻿using MrCafe.core.DTO;
+using MrCafe.Core.Data;
 using MrCafe.Core.Repository;
 using MrCafe.Core.Service;
 using System;
@@ -17,10 +18,26 @@ namespace MrCafe.Infra.Service
         }
         public bool CreateCartOrder(Cartorder cartOrder)
         {
+
+
+            List<CartDTO> cartorder = _cartOrderRepository.getCartorderbyUserid(cartOrder);
+            if (cartorder.Count == 0)
+                return _cartOrderRepository.insertCartorder(cartOrder);
+
+            foreach (CartDTO cartorderitem in cartorder)
+            {
+                if (cartorderitem.productid == cartOrder.Productid)
+                {
+                    cartOrder.ID = cartorderitem.Id;
+                    cartOrder.Quantity = cartorderitem.quantity + cartOrder.Quantity;
+                    return _cartOrderRepository.updateCartorder(cartOrder);
+                }
+            }
+
             return _cartOrderRepository.insertCartorder(cartOrder);
         }
 
-        public bool DeleteCartOrder(int id)
+        public bool deleteCartorder(int id)
         {
             return _cartOrderRepository.deleteCartorder(id);
         }
@@ -30,9 +47,9 @@ namespace MrCafe.Infra.Service
             return _cartOrderRepository.getallCartorder();
         }
 
-        public List<Cartorder> GetCartOrderByCartId(Cartorder cartOrder)
+        public List<CartDTO> getCartorderbyUserid(Cartorder cartOrder)
         {
-            return _cartOrderRepository.getCartorderbyCartid(cartOrder);
+            return _cartOrderRepository.getCartorderbyUserid(cartOrder);
         }
 
         public List<Cartorder> GetCartOrderById(Cartorder cartOrder)

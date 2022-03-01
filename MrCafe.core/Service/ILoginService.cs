@@ -1,4 +1,5 @@
-﻿using MrCafe.Core.Data;
+﻿using MrCafe.core.DTO;
+using MrCafe.Core.Data;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -13,6 +14,8 @@ namespace MrCafe.Core.Service
         public bool DeleteLogin(int id);
         public List<Login> GetLoginById(Login login);
         public List<Login> GetLoginByName(Login login);
+        public SendEmail SentEmailUser(SendEmail UserEmail);
+        public List<Login> GetLoginId(Login wlogin);
 
         public string getlogincheck(Login login);
     }
