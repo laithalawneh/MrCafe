@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using MrCafe.core.DTO;
 using MrCafe.Core.Data;
 using MrCafe.Core.Service;
 using System.Collections.Generic;
@@ -34,9 +35,9 @@ namespace MrCafe.API.Controllers
 
         [HttpDelete("DeleteCartOrder/{id}")]
         [ProducesResponseType(typeof(Cartorder), StatusCodes.Status200OK)]
-        public bool DeleteCartOrder(int id)
+        public bool deleteCartorder(int id)
         {
-            return _cartOrderService.DeleteCartOrder(id);
+            return _cartOrderService.deleteCartorder(id);
         }
 
 
@@ -47,11 +48,11 @@ namespace MrCafe.API.Controllers
             return _cartOrderService.UpdateCartOrder(cartOrder);
         }
 
-        [HttpPost("GetCartOrderByCartId")]
-        [ProducesResponseType(typeof(Cartorder), StatusCodes.Status200OK)]
-        public List<Cartorder> GetCartOrderByCartId([FromBody] Cartorder cartOrder)
+        [HttpPost("getCartorderbyUserid")]
+        [ProducesResponseType(typeof(CartDTO), StatusCodes.Status200OK)]
+        public List<CartDTO> getCartorderbyUserid([FromBody] Cartorder cartOrder)
         {
-            return _cartOrderService.GetCartOrderByCartId(cartOrder);
+            return _cartOrderService.getCartorderbyUserid(cartOrder);
         }
 
         [HttpPost("GetCartOrderById")]

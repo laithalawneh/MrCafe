@@ -1,5 +1,6 @@
 ﻿using Dapper;
 using MrCafe.core.common;
+using MrCafe.core.DTO;
 using MrCafe.Core.Data;
 using MrCafe.Core.Repository;
 using System;
@@ -85,6 +86,30 @@ namespace MrCafe.Infra.Repository
 
             IEnumerable<Login> result = _dbContext.connection.Query<Login>("Login_package.getlogincheck", p, commandType: CommandType.StoredProcedure);
             return result.FirstOrDefault();
+        }
+
+        public SendEmail SentEmailUser(SendEmail UserEmail)
+        {
+            var p = new DynamicParameters();
+
+            p.Add("User_Name", UserEmail.UserName, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("pass", UserEmail.Password, dbType: DbType.String, direction: ParameterDirection.Input);
+
+
+            IEnumerable<SendEmail> result = _dbContext.connection.Query<SendEmail>("Login_package.sendemail", p, commandType: CommandType.StoredProcedure);
+
+            return result.FirstOrDefault();
+        }
+
+        public List<Login> GetLoginId(Login wlogin)
+        {
+            var p = new DynamicParameters();
+
+            p.Add("User_Name", wlogin.UserName, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("pass", wlogin.Password, dbType: DbType.String, direction: ParameterDirection.Input);
+
+            IEnumerable<Login> result = _dbContext.connection.Query<Login>("Login_package.getlogincheck2", p, commandType: CommandType.StoredProcedure);
+            return result.ToList();
         }
     }
 }

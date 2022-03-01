@@ -59,5 +59,12 @@ namespace MrCafe.api.Controllers
         {
             return _walletService.UpdateWallet(wallet);
         }
+
+        [HttpPut("UpdateBayWallet")]
+        [ProducesResponseType(typeof(Wallet), StatusCodes.Status200OK)]
+        public bool UpdateBayWallet([FromBody] Wallet wallet)
+        {
+            return _walletService.UpdateBayWallet(wallet);
+        }
     }
 }

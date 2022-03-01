@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace MrCafe.Infra.Repository
 {
@@ -99,5 +100,58 @@ namespace MrCafe.Infra.Repository
             return result.ToList().FirstOrDefault();
         }
 
+        public async Task<Cafes> GetAllCafeProducts(int id)
+        {
+            var p = new DynamicParameters();
+            p.Add(@"cafe_id", id, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            var result = await _dbContext.connection.QueryAsync<Cafes, product, Cafes>("Cafes_package.GetAllCafeProducts", (cafe, product) =>
+            {
+                cafe.products = cafe.products ?? new List<product>();
+                cafe.products.Add(product);
+                return cafe;
+            },
+            splitOn: "id",
+            param: p,
+            commandType: CommandType.StoredProcedure
+
+
+
+            );
+            var finalresult = result.AsList<Cafes>().GroupBy(p => p.Cafeid).Select(g =>
+            {
+                Cafes cafe = g.First();
+                cafe.products = g.Where(g => g.products.Any() && g.products.Count() > 0).Select(p => p.products.Single()).GroupBy(product => product.ID).Select(p => new product
+                {
+                    ID = p.First().ID,
+                    productname = p.First().productname,
+                    price = p.First().price,
+                    prodescription = p.First().prodescription,
+                    Rate = p.First().Rate,
+                    Imagename = p.First().Imagename,
+                    Cafeid = p.First().Cafeid
+                }
+
+
+
+                ).ToList();
+                return cafe;
+            }).ToList();
+
+
+
+            return finalresult.First();
+        }
+
+        public List<Cafes> GetTopCafes()
+        {
+            IEnumerable<Cafes> result = _dbContext.connection.Query<Cafes>("Cafes_Package.GetTopCafes", commandType: CommandType.StoredProcedure);
+            return result.ToList();
+        }
+
+        public List<Cafes> GetCafeByAscendingRate()
+        {
+            IEnumerable<Cafes> result = _dbContext.connection.Query<Cafes>("Cafes_package.GetCafeByAscendingRate", commandType: CommandType.StoredProcedure);
+            return result.ToList();
+        }
     }
 }

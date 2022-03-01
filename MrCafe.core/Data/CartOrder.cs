@@ -10,13 +10,15 @@ namespace MrCafe.Core.Data
     {
         [Key]
         public int ID { get; set; }
-        public int Cartid { get; set;}
-        public int Orderid { get; set; }
+        public int Userid { get; set; }
+        public int Productid { get; set; }
+        public decimal? Quantity { get; set; }
 
-        [ForeignKey("Cartid")]
-        public virtual Cart Cart { get; set; }
 
-        [ForeignKey("Orderid")]
-        public virtual Orders Orders { get; set; }
+        [ForeignKey("Userid")]
+        public virtual Users User { get; set; }
+
+        [ForeignKey("Productid")]
+        public virtual product Product { get; set; }
     }
 }

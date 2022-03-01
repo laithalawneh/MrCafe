@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace MrCafe.Core.Service
 {
@@ -16,5 +17,8 @@ namespace MrCafe.Core.Service
         public List<Cafes> GetCofesByRate(Cafes cafe);
         public List<Cafes> GetCofesByRateDec();
         public Cafes GetCafeId(Cafes cafe);
+        public  Task<Cafes> GetAllCafeProducts(int id);
+        public List<Cafes> GetTopCafes();
+        public List<Cafes> GetCafeByAscendingRate();
     }
 }

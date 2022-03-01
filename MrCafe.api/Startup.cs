@@ -61,9 +61,6 @@ namespace MrCafe.api
             services.AddScoped<ICafesService, CafesService>();
             services.AddScoped<ICafesRepository, CafesRepository>();
 
-            services.AddScoped<ICartService, CartService>();
-            services.AddScoped<ICartRepository, CartRepository>();
-
             services.AddScoped<ICartOrderService, CartOrderService>();
             services.AddScoped<ICartOrderRepository, CartorderRepository>();
 

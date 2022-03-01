@@ -59,5 +59,15 @@ namespace MrCafe.Infra.Repository
             IEnumerable<Wallet> result = _dbContext.connection.Query<Wallet>("Wallet_Package.GetWalletById", p, commandType: CommandType.StoredProcedure);
             return result.ToList();
         }
+
+        public bool UpdateBayWallet(Wallet wallet)
+        {
+            var p = new DynamicParameters();
+
+            p.Add("Wallet_Balance", wallet.Balance, dbType: DbType.Double, direction: ParameterDirection.Input);
+            p.Add("Wallet_Cafeid", wallet.Cafeid, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            var result = _dbContext.connection.ExecuteAsync("Wallet_Package.UpdateBayWallet", p, commandType: CommandType.StoredProcedure);
+            return true;
+        }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using MrCafe.core.DTO;
 using MrCafe.Core.Data;
 using MrCafe.Core.Service;
 using System.Collections.Generic;
@@ -74,6 +75,21 @@ namespace MrCafe.API.Controllers
             {
                 return Ok(item);
             }
+        }
+
+        [HttpPost("GetLoginId")]
+        [ProducesResponseType(typeof(Login), StatusCodes.Status200OK)]
+        public List<Login> GetLoginId([FromBody] Login login)
+        {
+            return _loginService.GetLoginId(login);
+        }
+
+        [HttpPost("SentEmailUser")]
+        public bool SentEmailUser([FromBody] SendEmail UserEmail)
+        {
+            _loginService.SentEmailUser(UserEmail);
+            return true;
+
         }
     }
 }
